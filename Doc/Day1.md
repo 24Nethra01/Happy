@@ -9,7 +9,7 @@
 
 Why BSRR when ODR can be updated directly?
 
-ANs: To update ODR by GPIOA->ODR|=(1<<2) , we need to first read the value of ODR(word access only) then update it without affecting other bits and store back. It involves a 3 step process and if interrupted in between, it can lead to wrong data filling(can be dangerous). This happens internally because ODR is a data storage register and cannot update only one bit but the whole output value. On the other hand by GPIOA->BSRR|=(1<<2) , we can update single bit of ODR in a single indivisible step, hence called BIT ATOMIC OPERATION. It only sets or resets a particular bit in ODR without having to fetch current ODR value.
+Ans: To update ODR by GPIOA->ODR|=(1<<2) , we need to first read the value of ODR(word access only) then update it without affecting other bits and store back. It involves a 3 step process and if interrupted in between, it can lead to wrong data filling(can be dangerous). This happens internally because ODR is a data storage register and cannot update only one bit but the whole output value. On the other hand by GPIOA->BSRR|=(1<<2) , we can update single bit of ODR in a single indivisible step, hence called BIT ATOMIC OPERATION. It only sets or resets a particular bit in ODR without having to fetch current ODR value.
 
 
 
