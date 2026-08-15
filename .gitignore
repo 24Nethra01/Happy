@@ -1,0 +1,6 @@
+Debug/
+Release/
+.metadata/
+RTE/
+*.launch
+.settings/
