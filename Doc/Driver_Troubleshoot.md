@@ -68,27 +68,3 @@ session in CubeIDE routes through OpenOCD automatically — no repeat setup need
 
 ---
 
-## Day 1 — Timer interrupt callback never firing (LEDs not toggling)
-
-**Symptom:**
-Code built and flashed successfully (confirmed via OpenOCD log), but the LEDs never toggled —
-board just sat with PD12 permanently on and PD15 permanently off.
-
-**Root cause:**
-Typo in the HAL callback function name — used:
-```c
-void HAL_TIM_PeriodElapsedCallBack(TIM_HandleTypeDef *htim)   // wrong: capital 'B'
-```
-instead of the exact HAL-defined name:
-```c
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)   // correct: lowercase 'b'
-```
-HAL's callback system relies on weak-function overriding by **exact name match**. Since the
-names didn't match character-for-character, the function I wrote was never actually called —
-the timer interrupt fired correctly, but HAL silently ran its own empty default callback instead.
-
-**Fix:** Corrected capitalization to match HAL's exact function signature. LEDs began alternating
-immediately after reflashing.
-
-**Lesson:** When overriding a HAL weak function, copy/verify the exact signature from the HAL
-header file rather than typing from memory — case mismatches compile fine and fail silently.
