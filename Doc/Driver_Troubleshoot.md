@@ -1,6 +1,6 @@
 # Troubleshooting Log — Happy
 
-## Day 1 — ST-LINK not detected on ARM64 Windows (Secure Boot / driver signature issue)
+## Day 2 — ST-LINK not detected on ARM64 Windows (Secure Boot / driver signature issue)
 
 **Symptom:**
 STM32CubeIDE Debug session failed with "No ST-LINK detected." Device Manager showed the ST-LINK
