@@ -21,7 +21,7 @@ This happened regardless of:
   at first with `The value is protected by Secure Boot policy and cannot be modified or deleted.`
 
 **Root cause:**
-This laptop (Lenovo IdeaPad Slim 3, 15Q8X10) uses an **ARM64 (Snapdragon) processor**, not a
+This laptop (Lenovo IdeaPad Slim 3) uses an **ARM64 (Snapdragon) processor**, not a
 standard x86_64 (Intel/AMD) one. STMicroelectronics' official ST-LINK USB driver is only built
 and signed for x86_64 Windows — **no official ARM64 build exists**. This is a known, documented
 limitation (see ST Community forum threads on "STLink / STCubeProgrammer support on Windows
