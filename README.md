@@ -46,7 +46,7 @@ One month of sem holidays and one small step or learning everyday can make huge 
 
 ## ROADMAP
 
-- [ ] GPIO \& timer interrupt foundations
+- [x] GPIO \& timer interrupt foundations
 
 - [ ] I2C + OLED display, state-based face animations
 
